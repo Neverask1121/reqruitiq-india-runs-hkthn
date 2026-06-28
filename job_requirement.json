@@ -1,0 +1,146 @@
+{
+  "job_metadata": {
+    "role": "Senior AI Engineer",
+    "team": "Founding Engineering Team",
+    "location": {
+      "primary": ["Pune", "Noida"],
+      "relocation_allowed": true
+    },
+    "experience": {
+      "preferred_years": {
+        "minimum": 5,
+        "maximum": 9
+      },
+      "strict_requirement": false,
+      "note": "Quality of experience is more important than total years."
+    }
+  },
+
+  "mandatory_skills": [
+    "Python",
+    "Embeddings",
+    "Retrieval Systems",
+    "Ranking Systems",
+    "Vector Databases",
+    "Semantic Search",
+    "Large Language Models",
+    "Production Machine Learning",
+    "Information Retrieval",
+    "Machine Learning"
+  ],
+
+  "preferred_skills": [
+    "Learning to Rank",
+    "LoRA",
+    "QLoRA",
+    "PEFT",
+    "Distributed Systems",
+    "Open Source Contributions",
+    "HR Tech",
+    "Marketplace Systems",
+    "Inference Optimization"
+  ],
+
+  "technical_evaluation": {
+    "required_metrics": [
+      "NDCG",
+      "MRR",
+      "MAP",
+      "A/B Testing"
+    ]
+  },
+
+  "behavioral_requirements": {
+    "preferred": [
+      "Open to Work",
+      "Recent Platform Activity",
+      "High Recruiter Response Rate",
+      "High GitHub Activity",
+      "High Skill Assessment Score",
+      "Short Notice Period",
+      "Willing to Relocate"
+    ]
+  },
+
+  "soft_skills": [
+    "Ownership",
+    "Communication",
+    "Collaboration",
+    "Adaptability",
+    "Fast Learning",
+    "Problem Solving",
+    "Decision Making",
+    "Product Thinking",
+    "Builder Mindset"
+  ],
+
+  "preferred_background": {
+    "company_type": [
+      "Product Company",
+      "AI Startup",
+      "Technology Company"
+    ],
+    "project_types": [
+      "Search Systems",
+      "Recommendation Systems",
+      "Ranking Systems",
+      "Retrieval Systems",
+      "Production AI Systems",
+      "LLM Applications"
+    ]
+  },
+
+  "education": {
+    "preferred_degrees": [
+      "Computer Science",
+      "Artificial Intelligence",
+      "Machine Learning",
+      "Data Science",
+      "Software Engineering"
+    ],
+    "weight": "low"
+  },
+
+  "certifications": {
+    "preferred": [
+      "AWS",
+      "Google Cloud",
+      "Azure AI",
+      "TensorFlow",
+      "Machine Learning Certifications"
+    ],
+    "weight": "bonus"
+  },
+
+  "negative_signals": [
+    "Research-only background",
+    "No production deployment experience",
+    "Only prompt engineering experience",
+    "No retrieval or ranking system experience",
+    "Service company experience without product ownership",
+    "Primary expertise only in Computer Vision",
+    "Primary expertise only in Robotics",
+    "Primary expertise only in Speech Processing",
+    "Inactive candidate profile",
+    "Low recruiter response rate",
+    "Long notice period"
+  ],
+
+  "scoring_weights": {
+    "technical_skills": 35,
+    "relevant_experience": 25,
+    "career_and_projects": 15,
+    "behavioral_signals": 15,
+    "education_and_certifications": 5,
+    "culture_fit": 5
+  },
+
+  "ranking_principles": [
+    "Use semantic understanding instead of keyword matching.",
+    "Prioritize production experience over theoretical knowledge.",
+    "Reward career progression and ownership.",
+    "Reward candidates who have built search, retrieval, or ranking systems.",
+    "Consider behavioral signals while ranking.",
+    "Prefer practical engineering impact over framework familiarity."
+  ]
+}
