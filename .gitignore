@@ -1,0 +1,119 @@
+# =========================
+# Operating System Files
+# =========================
+.DS_Store
+Thumbs.db
+Desktop.ini
+__MACOSX/
+**/__MACOSX/
+
+# =========================
+# Git
+# =========================
+.git
+
+# =========================
+# Environment Variables
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Logs
+# =========================
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =========================
+# Node.js
+# =========================
+node_modules/
+dist/
+build/
+coverage/
+.next/
+.nuxt/
+.svelte-kit/
+.vite/
+.cache/
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.python-version
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+.venv/
+venv/
+env/
+ENV/
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# Java
+# =========================
+*.class
+*.jar
+*.war
+*.ear
+target/
+out/
+.gradle/
+build/
+
+# =========================
+# C/C++
+# =========================
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.out
+
+# =========================
+# IDEs & Editors
+# =========================
+.vscode/
+.idea/
+*.iml
+*.swp
+*.swo
+
+# =========================
+# Archives
+# =========================
+*.zip
+*.tar
+*.gz
+*.7z
+*.rar
+
+# =========================
+# Temporary Files
+# =========================
+tmp/
+temp/
+*.tmp
+
+
+
+**/candidates.jsonl
