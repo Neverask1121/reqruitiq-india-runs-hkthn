@@ -1,256 +1,451 @@
-# Intelligent Candidate Discovery & Ranking Challenge
+# AI Recruiter – Intelligent Candidate Discovery & Ranking
 
-An AI-powered candidate ranking system built for the **Redrob Hackathon**. The project ranks 100,000 candidates against a given job description and returns the **Top 100 most relevant candidates** with explainable reasoning while satisfying the competition's compute constraints.
+> **India Runs Data & AI Challenge**
 
----
-
-## Overview
-
-The objective of this project is to design an intelligent candidate discovery pipeline capable of:
-
-- Parsing structured candidate profiles
-- Understanding job requirements
-- Ranking candidates based on relevance
-- Detecting and avoiding honeypot candidates
-- Producing human-readable reasoning for every recommendation
-
-The system is designed to operate entirely on **CPU**, within **16 GB RAM**, and complete ranking in **under 5 minutes**.
+An AI-powered recruitment system that intelligently understands job requirements, processes over **100,000 candidate profiles**, leverages behavioral signals, and generates an explainable ranked shortlist of the best-fit candidates.
 
 ---
 
-## Dataset
+# Team
 
-The participant bundle contains:
-
-| File | Description |
-|------|-------------|
-| `candidates.jsonl.gz` | 100,000 candidate profiles |
-| `sample_candidates.json` | First 50 candidates for schema inspection |
-| `candidate_schema.json` | Complete JSON schema |
-| `job_description.md` | Target job description |
-| `redrob_signals_doc.md` | Documentation for behavioral signals |
-| `submission_spec.md` | Competition rules and submission format |
-| `submission_metadata_template.yaml` | Submission metadata template |
-| `sample_submission.csv` | Submission format example |
-| `validate_submission.py` | Submission validator |
+| Member   | Name                | Responsibility                             |
+| -------- | ------------------- | ------------------------------------------ |
+| Member 1 | **Shravani Baral**  | Job Understanding & Requirement Extraction |
+| Member 2 | **Aditya Bhandari** | Candidate Data Processing & Preprocessing  |
+| Member 3 | **Anshu**           | Frontend Dashboard & System Integration    |
+| Member 4 | **Prerana Mahajan** | AI Ranking Engine & Candidate Scoring      |
 
 ---
 
-# Project Structure
+# Problem Statement
+
+Traditional Applicant Tracking Systems (ATS) rely heavily on keyword matching, often missing qualified candidates.
+
+Our solution aims to:
+
+* Understand complex Job Descriptions.
+* Perform contextual and semantic candidate matching.
+* Integrate profile information, career history and behavioral signals.
+* Rank candidates intelligently.
+* Produce explainable hiring recommendations.
+
+---
+
+# Dataset
+
+The challenge provides:
+
+* `job_description.docx`
+* `candidates.jsonl` (~100,000 candidates)
+* `candidate_schema.json`
+* `redrob_signals_doc.docx`
+* `sample_candidates.json`
+* `sample_submission.csv`
+* `submission_spec.docx`
+* `validate_submission.py`
+
+---
+
+# System Architecture
 
 ```text
-.
-├── data/
-│   ├── candidates.jsonl.gz
-│   ├── sample_candidates.json
-│   ├── candidate_schema.json
-│   └── job_description.md
+                    Job Description
+                           │
+                           ▼
+         Member 1 - Job Understanding Module
+                           │
+                           ▼
+         Structured Job Requirement JSON
+                           │
+                           ▼
+      Member 2 - Candidate Processing Module
+                           │
+                           ▼
+         Parsed & Clean Candidate Dataset
+                           │
+                           ▼
+          Member 4 - AI Ranking Engine
+                           │
+                           ▼
+             Ranked Candidate Shortlist
+                           │
+                           ▼
+                  submission.csv
+                           │
+                           ▼
+     Member 3 - Recruiter Dashboard
+```
+
+---
+
+# Team Responsibilities
+
+## Member 1 – Shravani Baral
+
+### Job Understanding
+
+Responsibilities
+
+* Analyze Job Description
+* Extract Role
+* Extract Required Skills
+* Extract Preferred Skills
+* Extract Experience
+* Extract Education
+* Extract Soft Skills
+* Identify Hidden Requirements
+* Create Structured Job Requirement JSON
+* Define feature importance for ranking
+
+Deliverable
+
+* Structured Job Requirement JSON
+
+---
+
+## Member 2 – Aditya Bhandari
+
+### Candidate Processing
+
+Responsibilities
+
+### explore_dataset.py
+
+* Explore dataset structure
+* Understand schema
+* Identify top-level fields
+* Understand nested fields
+
+### inspect_schema.py
+
+* Scan all candidates
+* Detect missing fields
+* Detect optional fields
+* Detect inconsistent data types
+
+Output
+
+```
+outputs/schema_report.json
+```
+
+### parser.py
+
+Extract
+
+* candidate_id
+* profile
+* career_history
+* education
+* skills
+* certifications
+* languages
+* redrob_signals
+
+### normalizer.py
+
+Normalize
+
+* Skills
+* Company Names
+* Job Titles
+* Locations
+* Degrees
+
+### validator.py
+
+Validate
+
+* Missing fields
+* Invalid data
+* Null values
+
+### process_dataset.py
+
+Pipeline
+
+```
+Read Dataset
+
+↓
+
+Parse Candidate
+
+↓
+
+Normalize
+
+↓
+
+Validate
+
+↓
+
+Save Parsed Dataset
+```
+
+Output
+
+```
+outputs/parsed_candidates.json
+```
+
+### dataset_statistics.py
+
+Generate
+
+* Total Candidates
+* Average Experience
+* Top Skills
+* Top Companies
+* Top Industries
+* Top Locations
+* Top Degrees
+* Certification Statistics
+* Language Statistics
+* Skill Distribution
+
+Output
+
+```
+outputs/dataset_statistics.json
+```
+
+---
+
+## Member 3 – Anshu
+
+### Frontend Dashboard
+
+Responsibilities
+
+* Home Page
+* Upload Job Description
+* Candidate Ranking Table
+* Candidate Details
+* Search
+* Filters
+* AI Summary
+* Backend Integration
+
+Deliverable
+
+Recruiter Dashboard
+
+---
+
+## Member 4 – Prerana Mahajan
+
+### AI Ranking Engine
+
+Inputs
+
+* Job Requirement JSON (Member 1)
+* Parsed Candidate Dataset (Member 2)
+
+Responsibilities
+
+* Semantic Skill Matching
+* Experience Matching
+* Career Analysis
+* Behavioral Signal Integration
+* Candidate Scoring
+* Explainable Ranking
+* Generate Final Rankings
+* Generate Submission CSV
+
+Deliverable
+
+```
+submission.csv
+```
+
+---
+
+# Folder Structure
+
+```text
+AI-Recruiter/
+
+├── dataset/
 │
-├── src/
-│   ├── preprocessing.py
-│   ├── feature_engineering.py
-│   ├── ranker.py
-│   ├── scorer.py
-│   ├── reasoning.py
-│   └── utils.py
+├── member1/
 │
-├── outputs/
-│   └── submission.csv
+├── member2/
+│   ├── scripts/
+│   ├── outputs/
+│   ├── requirements.txt
+│   └── README.md
 │
-├── notebooks/
+├── member3/
 │
-├── validate_submission.py
-├── requirements.txt
+├── member4/
+│
+├── frontend/
+│
+├── backend/
+│
 └── README.md
 ```
 
 ---
 
-# Ranking Pipeline
+# Member 2 Pipeline
 
-```
-Candidate Dataset
+```text
+explore_dataset.py
         │
         ▼
-Data Loading
+inspect_schema.py
         │
         ▼
-Data Cleaning
+parser.py
         │
         ▼
-Feature Engineering
+normalizer.py
         │
         ▼
-Behavioral Signal Analysis
+validator.py
         │
         ▼
-Job Description Encoding
+process_dataset.py
         │
         ▼
-Similarity Scoring
+parsed_candidates.json
         │
         ▼
-Weighted Ranking
-        │
-        ▼
-Honeypot Detection
-        │
-        ▼
-Top 100 Selection
-        │
-        ▼
-Reason Generation
-        │
-        ▼
-Submission CSV
+dataset_statistics.py
 ```
 
 ---
 
-# Features
+# Technology Stack
 
-- Structured candidate parsing
-- Job-description-aware ranking
-- Behavioral signal scoring
-- Multi-factor weighted ranking
-- Explainable recommendations
-- Honeypot detection
-- Fast CPU inference
-- Submission validation
+### Languages
 
----
+* Python 3.11+
+* JavaScript
+* HTML
+* CSS
 
-# Installation
+### Backend
 
-Clone the repository
+* Python
+* FastAPI
 
-```bash
-git clone https://github.com/yourusername/redrob-hackathon.git
+### AI
 
-cd redrob-hackathon
-```
+* Gemini / OpenAI
+* Sentence Transformers
+* Custom Scoring Engine
 
-Install dependencies
+### Data Processing
 
-```bash
-pip install -r requirements.txt
-```
+* JSON
+* JSONL
+* pathlib
 
----
+### Version Control
 
-# Running
-
-If using the compressed dataset:
-
-```python
-import gzip
-import json
-
-with gzip.open("candidates.jsonl.gz","rt") as f:
-    candidates = [json.loads(line) for line in f]
-
-print(len(candidates))
-```
-
-Or unzip first
-
-```bash
-gunzip -k candidates.jsonl.gz
-```
+* Git
+* GitHub
 
 ---
 
-# Generate Rankings
+# Coding Standards
 
-```bash
-python src/ranker.py
-```
+* Modular Architecture
+* Type Hints
+* PEP8 Compliance
+* Exception Handling
+* Reusable Functions
+* Memory-Efficient Processing
 
-The output will be generated as
+---
+
+# Expected Outputs
+
+### Member 1
+
+* Structured Job Requirement JSON
+
+### Member 2
 
 ```
-outputs/submission.csv
+outputs/
+
+schema_report.json
+parsed_candidates.json
+dataset_statistics.json
+```
+
+### Member 4
+
+```
+submission.csv
+```
+
+### Member 3
+
+Interactive Recruiter Dashboard
+
+---
+
+# Current Progress
+
+| Member          | Status                                                |
+| --------------- | ----------------------------------------------------- |
+| Shravani Baral  | Job Description Analysis                              |
+| Aditya Bhandari | Dataset Exploration Completed, Processing In Progress |
+| Anshu           | Pending                                               |
+| Prerana Mahajan | Pending                                               |
+
+---
+
+# Final Workflow
+
+```text
+Job Description
+        │
+        ▼
+Job Understanding
+(Member 1)
+        │
+        ▼
+Candidate Processing
+(Member 2)
+        │
+        ▼
+AI Ranking Engine
+(Member 4)
+        │
+        ▼
+Ranked Candidates
+        │
+        ▼
+submission.csv
+        │
+        ▼
+Recruiter Dashboard
+(Member 3)
 ```
 
 ---
 
-# Validate Submission
+# Future Scope
 
-```bash
-python validate_submission.py outputs/submission.csv
-```
-
----
-
-# Submission Format
-
-The generated CSV should contain:
-
-| Column | Description |
-|----------|-------------|
-| rank | Candidate rank |
-| candidate_id | Candidate identifier |
-| reasoning | 1–2 sentence explanation |
-
-Only the **Top 100** candidates should be included.
+* Resume Upload Support
+* AI Resume Summarization
+* Candidate Comparison
+* Interview Question Generation
+* Bias Detection
+* Skill Gap Analysis
+* Salary Prediction
+* Multi-Job Support
+* Recruiter Chatbot
 
 ---
 
-# Compute Constraints
+# Goal
 
-- CPU Only
-- No Internet Access
-- Maximum Runtime: 5 Minutes
-- Maximum Memory: 16 GB RAM
-
----
-
-# Evaluation
-
-Submissions are evaluated on multiple stages including:
-
-- Ranking Quality
-- Generalization
-- Behavioral Signal Usage
-- Honeypot Avoidance
-- Explainability
-- Robustness
-
-A honeypot rate greater than **10%** in the Top 100 results in disqualification.
-
----
-
-# Technologies
-
-- Python
-- Pandas
-- NumPy
-- Scikit-learn
-- Sentence Transformers (optional)
-- JSON
-- CSV
-
----
-
-# Future Improvements
-
-- Hybrid semantic retrieval
-- Learning-to-rank models
-- Better behavioral embeddings
-- Explainable AI (XAI)
-- Faster vector search
-- Ensemble ranking models
-
----
-
-# Acknowledgements
-
-Built for the **Redrob Intelligent Candidate Discovery & Ranking Hackathon**.
-
-Special thanks to the Redrob team for providing the dataset, documentation, and evaluation framework.
-
----
-
-# License
-
-This repository is intended for educational and hackathon purposes.
+Build an intelligent AI recruitment system capable of understanding hiring requirements, processing over **100,000 candidate profiles**, integrating behavioral signals, and generating an explainable, scalable, and highly accurate ranked shortlist of candidates.
