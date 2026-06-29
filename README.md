@@ -1,3 +1,4 @@
+
 # AI Recruiter – Intelligent Candidate Discovery & Ranking
 
 > **India Runs Data & AI Challenge**
@@ -12,8 +13,8 @@ An AI-powered recruitment system that intelligently understands job requirements
 | -------- | ------------------- | ------------------------------------------ |
 | Member 1 | **Shravani Baral**  | Job Understanding & Requirement Extraction |
 | Member 2 | **Aditya Bhandari** | Candidate Data Processing & Preprocessing  |
-| Member 3 | **Anshu**           | Frontend Dashboard & System Integration    |
-| Member 4 | **Prerana Mahajan** | AI Ranking Engine & Candidate Scoring      |
+| Member 3 | **Anshu**           | AI Ranking Engine & Candidate Scoring      |
+| Member 4 | **Prerana Mahajan** | Frontend Dashboard & System Integration    |
 
 ---
 
@@ -64,7 +65,7 @@ The challenge provides:
          Parsed & Clean Candidate Dataset
                            │
                            ▼
-          Member 4 - AI Ranking Engine
+          Member 3 - AI Ranking Engine
                            │
                            ▼
              Ranked Candidate Shortlist
@@ -73,8 +74,7 @@ The challenge provides:
                   submission.csv
                            │
                            ▼
-     Member 3 - Recruiter Dashboard
-```
+      Member 4 - Recruiter Dashboard
 
 ---
 
@@ -215,27 +215,6 @@ outputs/dataset_statistics.json
 
 ## Member 3 – Anshu
 
-### Frontend Dashboard
-
-Responsibilities
-
-* Home Page
-* Upload Job Description
-* Candidate Ranking Table
-* Candidate Details
-* Search
-* Filters
-* AI Summary
-* Backend Integration
-
-Deliverable
-
-Recruiter Dashboard
-
----
-
-## Member 4 – Prerana Mahajan
-
 ### AI Ranking Engine
 
 Inputs
@@ -259,6 +238,31 @@ Deliverable
 ```
 submission.csv
 ```
+
+```
+```
+
+````markdown
+---
+
+## Member 4 – Prerana Mahajan
+
+### Frontend Dashboard
+
+Responsibilities
+
+* Home Page
+* Upload Job Description
+* Candidate Ranking Table
+* Candidate Details
+* Search
+* Filters
+* AI Summary
+* Backend Integration
+
+Deliverable
+
+Recruiter Dashboard
 
 ---
 
@@ -286,7 +290,7 @@ AI-Recruiter/
 ├── backend/
 │
 └── README.md
-```
+````
 
 ---
 
@@ -379,13 +383,13 @@ parsed_candidates.json
 dataset_statistics.json
 ```
 
-### Member 4
+### Member 3
 
 ```
 submission.csv
 ```
 
-### Member 3
+### Member 4
 
 Interactive Recruiter Dashboard
 
@@ -417,7 +421,7 @@ Candidate Processing
         │
         ▼
 AI Ranking Engine
-(Member 4)
+(Member 3)
         │
         ▼
 Ranked Candidates
@@ -427,7 +431,7 @@ submission.csv
         │
         ▼
 Recruiter Dashboard
-(Member 3)
+(Member 4)
 ```
 
 ---
@@ -449,3 +453,7 @@ Recruiter Dashboard
 # Goal
 
 Build an intelligent AI recruitment system capable of understanding hiring requirements, processing over **100,000 candidate profiles**, integrating behavioral signals, and generating an explainable, scalable, and highly accurate ranked shortlist of candidates.
+
+```
+```
+
