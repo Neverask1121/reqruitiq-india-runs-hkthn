@@ -238,7 +238,7 @@ Deliverable
 ```
 submission.csv
 ```
-
+will be updated soon
 ```
 ```
 
@@ -400,7 +400,7 @@ Interactive Recruiter Dashboard
 | Member          | Status                                                |
 | --------------- | ----------------------------------------------------- |
 | Shravani Baral  | Job Description Analysis                              |
-| Aditya Bhandari | Dataset Exploration Completed, Processing In Progress |
+| Aditya Bhandari | Dataset Exploration Completed, Processing is Done     |
 | Anshu           | Pending                                               |
 | Prerana Mahajan | Pending                                               |
 
