@@ -1,58 +1,75 @@
-from src.contracts import Candidate, JobRequirements
-from src.scorer import CandidateScorer
+from typing import List
 
-def main():
-    candidate = Candidate(
-        candidate_id="C001",
+from src.data_loader import load_candidates
+from src.preprocessing import preprocess_all
+from src.scorer import score_all
+from src.weighted_ranker import rank_candidates
+from src.reasoning import generate_reasoning
+from src.llm_reranker import rerank_with_llm
+from src.evaluation import evaluate_ranking
 
-        skills=[
-            "Python",
-            "Embeddings",
-            "Vector Databases",
-            "LangChain",
-            "LLM",
-        ],
 
-        experience_years=4,
+# =========================
+# PIPELINE CONTROLLER
+# =========================
 
-        projects=[
-            "Built a Retrieval System using Vector Database",
-            "Implemented Semantic Search with Embeddings",
-        ],
+def run_pipeline(input_path: str, top_k: int = 100):
 
-        behavioral_signals={
-            "open_to_work": True,
-            "github_activity": 120,
-            "recruiter_response_rate": 85,
-        },
-        education=["B.Tech Computer Science",],
-        certifications=[""
-            "AWS Cloud Practitioner",
-            "TensorFlow Developer",
-],
-)
+    print("\n[1] Loading candidates...")
+    raw_candidates = load_candidates(input_path)
 
-    job = JobRequirements(
-        mandatory_skills=[
-            "Python",
-            "Embeddings",
-            "Retrieval Systems",
-            "Ranking Systems",
-            "Vector Databases",
-        ],
+    print("[2] Preprocessing...")
+    preprocessed = preprocess_all(raw_candidates)
 
-        preferred_skills=[
-            "LoRA",
-            "Open Source",
-        ],
-    )
+    print("[3] Scoring candidates...")
+    scored = score_all(preprocessed)
 
-    scorer = CandidateScorer()
+    print("[4] Ranking candidates (weighted + JD boost)...")
+    ranked = rank_candidates(scored)
+    ranked = rerank_with_llm(ranked, top_k=20)
 
-    result = scorer.score(candidate, job)
+    print("[5] Selecting Top-K...")
+    top_candidates = ranked[:top_k]
+    evaluate_ranking(ranked)
 
-    print(result)
+    print(f"[DONE] Final selected: {len(top_candidates)} candidates")
+
+    return top_candidates
+
+
+# =========================
+# CSV EXPORT READY DATA
+# =========================
+
+def prepare_submission_rows(top_candidates: List):
+
+    rows = []
+
+    for rank, c in enumerate(top_candidates, start=1):
+
+        rows.append({
+            "candidate_id": c.candidate_id,
+            "rank": rank,
+            "final_score": round(c.final_score, 2),
+            "reasoning": getattr(c, "reasoning", "No reasoning available")
+        })
+
+    return rows
+
+
+# =========================
+# MAIN ENTRY
+# =========================
+
+from src.utils import save_submission
 
 
 if __name__ == "__main__":
-    main()
+
+    input_path = "dataset/sample_candidates.json"
+
+    top_candidates = run_pipeline(input_path)
+
+    rows = prepare_submission_rows(top_candidates)
+
+    save_submission(rows)

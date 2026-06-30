@@ -13,6 +13,7 @@ class EducationScorer:
         self,
         candidate: Candidate,
         job: JobRequirements,
+        features
     ):
         score = 0
         explanation = {

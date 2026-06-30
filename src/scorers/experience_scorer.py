@@ -9,7 +9,7 @@ class ExperienceScorer:
 
     MAX_SCORE = 25
 
-    def score(self, candidate: Candidate, job: JobRequirements):
+    def score(self, candidate: Candidate, job: JobRequirements,features):
         years = candidate.experience_years
 
         if years >= 5:

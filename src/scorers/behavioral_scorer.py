@@ -9,7 +9,7 @@ class BehavioralScorer:
 
     MAX_SCORE = 15
 
-    def score(self, candidate: Candidate, job: JobRequirements):
+    def score(self, candidate: Candidate, job: JobRequirements,features):
         score = 0
 
         signals = candidate.behavioral_signals

@@ -11,52 +11,26 @@ class TechnicalScorer:
 
     MAX_SCORE = 35
 
-    def score(self, candidate: Candidate, job: JobRequirements):
-        candidate_skills = {
-            skill.lower().strip()
-            for skill in candidate.skills
-        }
+    def score(self, candidate: Candidate, job: JobRequirements, features):
 
-        required_skills = {
-            skill.lower().strip()
-            for skill in job.mandatory_skills
-        }
+    skills = set([s.lower() for s in candidate.skills])
 
-        preferred_skills = {
-            skill.lower().strip()
-            for skill in job.preferred_skills
-        }
+    score = 0
+    matched_required = []
 
-        matched_required = candidate_skills & required_skills
-        matched_preferred = candidate_skills & preferred_skills
+    if "python" in skills:
+        score += 5
+        matched_required.append("python")
 
-        if len(required_skills) == 0:
-            required_score = 0
-        else:
-            required_score = (
-                len(matched_required)
-                / len(required_skills)
-            ) * 30
+    if features.get("llm_skill_count", 0) > 0:
+        score += 3
 
-        if len(preferred_skills) == 0:
-            preferred_score = 0
-        else:
-            preferred_score = (
-                len(matched_preferred)
-                / len(preferred_skills)
-            ) * 5
+    if features.get("retrieval_skill_count", 0) > 0:
+        score += 5
 
-        final_score = min(
-            self.MAX_SCORE,
-            required_score + preferred_score,
-        )
+    if features.get("vector_db_skill_count", 0) > 0:
+        score += 5
 
-        explanation = {
-            "matched_required": sorted(matched_required),
-            "matched_preferred": sorted(matched_preferred),
-            "missing_required": sorted(
-                required_skills - matched_required
-            ),
-        }
-
-        return final_score, explanation
+    return score, {
+        "matched_required": matched_required
+    }

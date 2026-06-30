@@ -21,7 +21,7 @@ class ProjectScorer:
         "production ai",
     }
 
-    def score(self, candidate: Candidate, job: JobRequirements):
+    def score(self, candidate: Candidate, job: JobRequirements,features):
 
         text = " ".join(candidate.projects).lower()
 

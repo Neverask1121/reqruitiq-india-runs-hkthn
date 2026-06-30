@@ -1,11 +1,26 @@
-class ReasonGenerator:
-    """
-    Generates explanations for candidate scores.
-    """
+from typing import Dict
 
-    def generate(self, candidate_score):
-        return {
-            "final_score": candidate_score.final_score,
-            "strengths": candidate_score.strengths,
-            "weaknesses": candidate_score.weaknesses,
-        }
+
+def generate_reasoning(candidate_id: str, features: Dict, scores: Dict) -> str:
+
+    reasons = []
+
+    if scores.get("technical", 0) > 70:
+        reasons.append("strong ML / ranking system alignment")
+
+    if features.get("ranking_experience", 0) > 30:
+        reasons.append("has retrieval / ranking system experience")
+
+    if features.get("data_eng_score", 0) > 40:
+        reasons.append("strong data engineering background")
+
+    if features.get("ml_alignment", 0) > 50:
+        reasons.append("good ML/AI exposure in profile")
+
+    if features.get("activity_score", 0) > 60:
+        reasons.append("high recruiter engagement and activity")
+
+    if not reasons:
+        reasons.append("moderate JD alignment based on skills and experience")
+
+    return f"{candidate_id}: " + "; ".join(reasons)

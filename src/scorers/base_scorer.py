@@ -6,5 +6,5 @@ class BaseScorer(ABC):
     """
 
     @abstractmethod
-    def score(self, candidate, job):
-        pass
+    def score(self, candidate, job, features=None):
+        raise NotImplementedError
