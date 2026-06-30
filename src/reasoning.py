@@ -2,6 +2,10 @@ from typing import Dict
 
 
 def generate_reasoning(candidate_id: str, features: Dict, scores: Dict) -> str:
+    """
+Reasoning module for explainable ranking output.
+This module generates human-readable explanations for candidate scores.
+"""
 
     reasons = []
 
