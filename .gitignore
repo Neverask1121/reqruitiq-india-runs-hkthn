@@ -99,3 +99,5 @@ member2\outputs\parsed_candidates.json
 # Ignore generated outputs
 member2/outputs/*
 !member2/outputs/.gitkeep
+
+__MACOSX
