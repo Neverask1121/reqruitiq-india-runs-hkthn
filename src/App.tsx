@@ -537,7 +537,7 @@ function CandidateProfilePage({ candidate, onBack }: { candidate: any; onBack: (
           <span className="w-2 h-2 rounded-full bg-electric" /> Skill Match
         </h3>
         <div className="space-y-4">
-          {Object.entries(c.skills).map(([skill, score]) => (
+          {Object.entries(c.skills as Record<string, number>).map(([skill, score]) => (
             <div key={skill} className="flex items-center gap-4">
               <span className="text-sm font-medium text-th-text2 w-20 text-right">{skill}</span>
               <div className="flex-1"><ProgressBar value={Number(score)} color={Number(score) >= 85 ? 'bg-emerald' : Number(score) >= 70 ? 'bg-electric' : 'bg-amber'} /></div>
@@ -553,7 +553,7 @@ function CandidateProfilePage({ candidate, onBack }: { candidate: any; onBack: (
           <span className="w-2 h-2 rounded-full bg-purple" /> Behavioral Signals
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-          {Object.entries(c.behavioral).map(([signal, score]) => {
+          {Object.entries(c.behavioral as Record<string, number>).map(([signal, score]) => {
             const colors = behavioralColors[signal] || { light: 'bg-gray-50 text-gray-600 border-gray-100', dark: 'dark:bg-white/5 dark:text-gray-400 dark:border-white/10' };
             return (
               <div key={signal} className={`rounded-xl p-4 border text-center theme-transition ${colors.light} ${colors.dark}`}>
