@@ -1,6 +1,7 @@
 
 # AI Recruiter – Intelligent Candidate Discovery & Ranking
 
+
 > **India Runs Data & AI Challenge**
 
 An AI-powered recruitment system that intelligently understands job requirements, processes over **100,000 candidate profiles**, leverages behavioral signals, and generates an explainable ranked shortlist of the best-fit candidates.
@@ -266,7 +267,7 @@ Recruiter Dashboard
 
 ---
 
-# Folder Structure
+# 🧠 System Architecture
 
 ```text
 AI-Recruiter/
