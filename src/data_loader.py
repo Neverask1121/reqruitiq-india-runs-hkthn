@@ -180,7 +180,7 @@ def load_candidates(json_path: str) -> List[Candidate]:
 # =========================
 
 if __name__ == "__main__":
-    path = "dataset/sample_candidates.json"
+    path = "member2/outputs/parsed_candidates.json"
     candidates = load_candidates(path)
 
     print(f"Loaded candidates: {len(candidates)}")

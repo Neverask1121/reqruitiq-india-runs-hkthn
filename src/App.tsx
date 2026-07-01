@@ -1,197 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,
   PieChart, Pie, Cell,
   RadarChart, Radar, PolarGrid, PolarAngleAxis, CartesianGrid
 } from 'recharts';
-
-// ─── Mock Data ────────────────────────────────────────────────────────────────
-
-const candidates = [
-  {
-    id: 1, name: 'Arjun Mehta', role: 'Senior Data Engineer', company: 'Razorpay',
-    matchScore: 96, skillScore: 94, behaviorScore: 92, experienceScore: 95,
-    status: 'Shortlisted',
-    skills: { Python: 95, AWS: 90, SQL: 88, Docker: 75, Spark: 60 },
-    behavioral: { Leadership: 9, Collaboration: 8, 'Learning Agility': 9, Consistency: 8, Ownership: 10 },
-    strengths: ['Deep expertise in distributed systems', 'Strong ownership mindset', 'Excellent communication in cross-functional teams', 'Proven track record of scaling data pipelines'],
-    weaknesses: ['Limited experience with GCP', 'No prior Kubernetes exposure'],
-    aiSummary: 'Arjun is a top-tier candidate with exceptional technical depth in data engineering. His track record at Razorpay demonstrates an ability to build and scale mission-critical data pipelines handling millions of transactions. He combines strong technical skills with leadership qualities, making him an ideal fit for a senior role that requires both hands-on coding and mentoring.'
-  },
-  {
-    id: 2, name: 'Priya Sharma', role: 'ML Engineer', company: 'Flipkart',
-    matchScore: 93, skillScore: 91, behaviorScore: 90, experienceScore: 88,
-    status: 'Shortlisted',
-    skills: { Python: 92, AWS: 85, SQL: 80, Docker: 70, Spark: 88 },
-    behavioral: { Leadership: 8, Collaboration: 9, 'Learning Agility': 10, Consistency: 8, Ownership: 9 },
-    strengths: ['Strong ML/AI foundation', 'Excellent learning agility', 'Published research in NeurIPS', 'Great team collaboration'],
-    weaknesses: ['Limited DevOps experience', 'Prefers individual work over large team settings'],
-    aiSummary: 'Priya brings a rare combination of research rigor and production ML experience. Her work at Flipkart on recommendation systems demonstrates practical ML at scale. Her learning agility score is among the highest in the pool, suggesting rapid adaptation to new tech stacks and problem domains.'
-  },
-  {
-    id: 3, name: 'David Chen', role: 'Backend Developer', company: 'Stripe',
-    matchScore: 91, skillScore: 89, behaviorScore: 88, experienceScore: 90,
-    status: 'Under Review',
-    skills: { Python: 88, AWS: 92, SQL: 90, Docker: 85, Spark: 55 },
-    behavioral: { Leadership: 7, Collaboration: 9, 'Learning Agility': 8, Consistency: 9, Ownership: 8 },
-    strengths: ['Expert-level AWS architecture', 'Strong SQL optimization skills', 'Proven payment systems experience', 'Excellent code quality standards'],
-    weaknesses: ['Limited Spark/big data experience', 'Tends to over-engineer solutions'],
-    aiSummary: 'David is a battle-tested backend engineer from Stripe with deep expertise in building reliable payment infrastructure. His AWS and SQL skills are exceptional. While his Spark experience is limited, his strong fundamentals and learning agility suggest he can ramp up quickly on big data tools.'
-  },
-  {
-    id: 4, name: 'Fatima Al-Rashid', role: 'Data Platform Lead', company: 'Careem',
-    matchScore: 89, skillScore: 87, behaviorScore: 91, experienceScore: 92,
-    status: 'Shortlisted',
-    skills: { Python: 85, AWS: 88, SQL: 92, Docker: 78, Spark: 82 },
-    behavioral: { Leadership: 10, Collaboration: 9, 'Learning Agility': 8, Consistency: 9, Ownership: 9 },
-    strengths: ['Outstanding leadership and mentoring', 'Built data platform from scratch', 'Cross-cultural team management', 'Strategic thinking'],
-    weaknesses: ['Docker expertise could be stronger', 'Less hands-on coding recently'],
-    aiSummary: 'Fatima stands out with her exceptional leadership scores — the highest in the candidate pool. She built and scaled the entire data platform at Careem, managing a team of 12 engineers. Her strategic mindset and cross-cultural experience make her particularly valuable for organizations with distributed teams.'
-  },
-  {
-    id: 5, name: "James O'Brien", role: 'Cloud Data Engineer', company: 'Datadog',
-    matchScore: 87, skillScore: 88, behaviorScore: 84, experienceScore: 85,
-    status: 'Under Review',
-    skills: { Python: 82, AWS: 95, SQL: 78, Docker: 90, Spark: 72 },
-    behavioral: { Leadership: 7, Collaboration: 8, 'Learning Agility': 9, Consistency: 7, Ownership: 8 },
-    strengths: ['Top-tier cloud infrastructure skills', 'Excellent Docker/containerization', 'Strong monitoring & observability knowledge', 'Fast learner'],
-    weaknesses: ['SQL skills below average for role', 'Inconsistent delivery timelines'],
-    aiSummary: "James brings outstanding cloud and infrastructure expertise from Datadog. His AWS score is the highest in the pool at 95%. While his SQL and consistency scores leave room for improvement, his technical depth in cloud-native architectures is highly relevant for modern data engineering roles."
-  },
-  {
-    id: 6, name: 'Aisha Patel', role: 'Analytics Engineer', company: 'PhonePe',
-    matchScore: 85, skillScore: 83, behaviorScore: 86, experienceScore: 84,
-    status: 'Under Review',
-    skills: { Python: 80, AWS: 75, SQL: 95, Docker: 60, Spark: 70 },
-    behavioral: { Leadership: 7, Collaboration: 9, 'Learning Agility': 8, Consistency: 9, Ownership: 8 },
-    strengths: ['Exceptional SQL mastery', 'Strong data modeling', 'Great stakeholder communication', 'Consistent delivery record'],
-    weaknesses: ['Docker experience is limited', 'AWS knowledge could be deeper'],
-    aiSummary: 'Aisha is a highly reliable analytics engineer with the strongest SQL skills in the pool. Her consistent delivery and excellent stakeholder communication make her a dependable team member. She may need support ramping up on containerization and cloud infrastructure.'
-  },
-  {
-    id: 7, name: 'Carlos Rodriguez', role: 'Platform Engineer', company: 'MercadoLibre',
-    matchScore: 83, skillScore: 85, behaviorScore: 80, experienceScore: 82,
-    status: 'Under Review',
-    skills: { Python: 78, AWS: 82, SQL: 75, Docker: 92, Spark: 68 },
-    behavioral: { Leadership: 6, Collaboration: 8, 'Learning Agility': 8, Consistency: 8, Ownership: 7 },
-    strengths: ['Expert in container orchestration', 'Strong CI/CD pipeline design', 'Kubernetes certified', 'Good at automation'],
-    weaknesses: ['Python skills need improvement', 'Leadership experience is limited'],
-    aiSummary: 'Carlos is a solid platform engineer with particular strength in containerization and DevOps practices. His Docker score of 92% is among the highest. While his Python and leadership scores are below the target, his infrastructure expertise would complement a team heavy on data skills.'
-  },
-  {
-    id: 8, name: 'Yuki Tanaka', role: 'Data Engineer', company: 'Mercari',
-    matchScore: 81, skillScore: 80, behaviorScore: 82, experienceScore: 79,
-    status: 'Under Review',
-    skills: { Python: 85, AWS: 72, SQL: 82, Docker: 68, Spark: 78 },
-    behavioral: { Leadership: 6, Collaboration: 7, 'Learning Agility': 9, Consistency: 9, Ownership: 8 },
-    strengths: ['Excellent learning agility', 'Very consistent performer', 'Strong Python data processing skills', 'Bilingual: Japanese/English'],
-    weaknesses: ['AWS experience limited to basic services', 'Needs mentoring in leadership'],
-    aiSummary: 'Yuki is a consistent and reliable data engineer with strong learning agility. Her high consistency and learning scores suggest significant growth potential. She may need mentorship in leadership and advanced cloud services, but her foundational skills are solid.'
-  },
-  {
-    id: 9, name: 'Marcus Johnson', role: 'Senior Backend Engineer', company: 'Coinbase',
-    matchScore: 79, skillScore: 81, behaviorScore: 78, experienceScore: 80,
-    status: 'Under Review',
-    skills: { Python: 75, AWS: 80, SQL: 85, Docker: 72, Spark: 55 },
-    behavioral: { Leadership: 7, Collaboration: 7, 'Learning Agility': 7, Consistency: 8, Ownership: 8 },
-    strengths: ['Strong database design skills', 'Crypto/blockchain domain knowledge', 'Reliable and deadline-oriented', 'Good ownership mindset'],
-    weaknesses: ['Spark experience is minimal', 'Could improve collaboration style'],
-    aiSummary: 'Marcus is a solid backend engineer with strong database and SQL skills. His experience at Coinbase gives him unique fintech domain knowledge. However, his limited Spark experience and average collaboration scores are worth considering for a team-oriented data engineering role.'
-  },
-  {
-    id: 10, name: 'Sophie Laurent', role: 'Data Platform Engineer', company: 'Criteo',
-    matchScore: 77, skillScore: 79, behaviorScore: 76, experienceScore: 78,
-    status: 'Under Review',
-    skills: { Python: 82, AWS: 70, SQL: 78, Docker: 75, Spark: 80 },
-    behavioral: { Leadership: 6, Collaboration: 8, 'Learning Agility': 7, Consistency: 7, Ownership: 8 },
-    strengths: ['Balanced skill set across all areas', 'Good Spark and big data experience', 'AdTech domain expertise', 'Strong ownership of projects'],
-    weaknesses: ['Jack of all trades, master of none', 'AWS skills are below target'],
-    aiSummary: "Sophie offers a well-rounded profile with balanced scores across all metrics. Her Spark experience is above average and her AdTech background is valuable. However, she doesn't have a standout strength, which may be a concern for a senior role requiring deep expertise."
-  },
-  {
-    id: 11, name: 'Raj Krishnamurthy', role: 'Staff Engineer', company: 'Swiggy',
-    matchScore: 75, skillScore: 76, behaviorScore: 74, experienceScore: 78,
-    status: 'Under Review',
-    skills: { Python: 70, AWS: 75, SQL: 80, Docker: 65, Spark: 72 },
-    behavioral: { Leadership: 8, Collaboration: 7, 'Learning Agility': 6, Consistency: 7, Ownership: 7 },
-    strengths: ['Good leadership at staff level', 'Experience with high-scale systems', 'Strong system design skills', 'Food-tech domain experience'],
-    weaknesses: ['Technical skills slightly below target', 'Learning agility needs improvement'],
-    aiSummary: "Raj brings staff-level experience and leadership from Swiggy's high-scale food delivery platform. While his individual technical scores are slightly below the target range, his system design experience and leadership capability could be valuable for team management aspects of the role."
-  },
-  {
-    id: 12, name: 'Emma Johansson', role: 'ETL Developer', company: 'Spotify',
-    matchScore: 72, skillScore: 74, behaviorScore: 70, experienceScore: 73,
-    status: 'Under Review',
-    skills: { Python: 78, AWS: 65, SQL: 85, Docker: 58, Spark: 68 },
-    behavioral: { Leadership: 5, Collaboration: 8, 'Learning Agility': 7, Consistency: 7, Ownership: 6 },
-    strengths: ['Strong ETL pipeline design', 'Excellent SQL and data modeling', 'Music/streaming domain knowledge', 'Good team player'],
-    weaknesses: ['Docker and containerization skills weak', 'Limited leadership experience', 'Ownership could be stronger'],
-    aiSummary: 'Emma is a competent ETL developer with strong SQL skills from her time at Spotify. Her experience with large-scale streaming data pipelines is relevant. However, her Docker, leadership, and ownership scores suggest she may need significant development to fit a senior role.'
-  },
-  {
-    id: 13, name: 'Kwame Asante', role: 'Data Infrastructure Engineer', company: 'Andela',
-    matchScore: 68, skillScore: 70, behaviorScore: 72, experienceScore: 65,
-    status: 'Under Review',
-    skills: { Python: 72, AWS: 68, SQL: 70, Docker: 62, Spark: 55 },
-    behavioral: { Leadership: 7, Collaboration: 8, 'Learning Agility': 8, Consistency: 6, Ownership: 7 },
-    strengths: ['Strong collaborative mindset', 'Good learning potential', 'Diverse team experience', 'Passionate about data engineering'],
-    weaknesses: ['Overall technical scores below target', 'Consistency needs work', 'Limited Spark exposure'],
-    aiSummary: 'Kwame shows strong collaboration and learning potential. His diverse team experience at Andela is a plus. However, his technical scores are generally below the target range for a senior role. He may be better suited for a mid-level position with a clear growth path.'
-  },
-  {
-    id: 14, name: 'Lisa Nakamura', role: 'Data Analyst', company: 'LINE',
-    matchScore: 62, skillScore: 64, behaviorScore: 68, experienceScore: 60,
-    status: 'Under Review',
-    skills: { Python: 65, AWS: 55, SQL: 80, Docker: 40, Spark: 45 },
-    behavioral: { Leadership: 5, Collaboration: 8, 'Learning Agility': 7, Consistency: 8, Ownership: 6 },
-    strengths: ['Strong SQL and analytics', 'Reliable and consistent', 'Good stakeholder relationships', 'Detail-oriented'],
-    weaknesses: ['Limited engineering skills (Docker, Spark)', 'AWS knowledge is basic', 'Not a leadership profile'],
-    aiSummary: 'Lisa is primarily a data analyst transitioning toward engineering. While her SQL skills are solid, her Docker, Spark, and AWS scores are significantly below the requirements for a Senior Data Engineer role. She would need considerable upskilling to match the technical demands.'
-  },
-  {
-    id: 15, name: 'Miguel Santos', role: 'Junior Data Engineer', company: 'Nubank',
-    matchScore: 55, skillScore: 58, behaviorScore: 65, experienceScore: 48,
-    status: 'Under Review',
-    skills: { Python: 60, AWS: 50, SQL: 65, Docker: 45, Spark: 40 },
-    behavioral: { Leadership: 4, Collaboration: 7, 'Learning Agility': 8, Consistency: 6, Ownership: 6 },
-    strengths: ['High learning agility', 'Fintech domain exposure', 'Enthusiastic and motivated', 'Good collaborative nature'],
-    weaknesses: ['Junior-level skills across the board', 'No leadership experience', 'Needs significant mentoring'],
-    aiSummary: 'Miguel is an early-career data engineer with high learning potential but limited experience. His scores are well below the requirements for a senior role. He would be an excellent candidate for a junior or mid-level position where he can develop under mentorship.'
-  },
-];
-
-const scoreDistribution = [
-  { range: '0-20', count: 0 },
-  { range: '20-40', count: 2 },
-  { range: '40-60', count: 8 },
-  { range: '60-80', count: 42 },
-  { range: '80-100', count: 48 },
-];
-
-const topSkillsData = [
-  { skill: 'Python', count: 8420 },
-  { skill: 'SQL', count: 7850 },
-  { skill: 'Java', count: 6200 },
-  { skill: 'AWS', count: 5980 },
-  { skill: 'Docker', count: 4320 },
-];
-
-const experienceBreakdown = [
-  { name: '0-2 yrs', value: 15 },
-  { name: '2-5 yrs', value: 30 },
-  { name: '5-10 yrs', value: 38 },
-  { name: '10+ yrs', value: 17 },
-];
-
-const behavioralAvg = [
-  { signal: 'Leadership', score: 6.8 },
-  { signal: 'Collaboration', score: 7.9 },
-  { signal: 'Learning', score: 7.8 },
-  { signal: 'Consistency', score: 7.6 },
-  { signal: 'Ownership', score: 7.7 },
-];
-
-const PIE_COLORS = ['#3B82F6', '#8B5CF6', '#06B6D4', '#10B981'];
 
 // ─── Theme Toggle Component ──────────────────────────────────────────────────
 
@@ -364,15 +176,15 @@ function Sidebar({ active, onNav, collapsed, dark, onToggleTheme }: {
 
 // ─── Dashboard Page ───────────────────────────────────────────────────────────
 
-function DashboardPage({ onViewCandidate }: { onViewCandidate: (id: number) => void }) {
+function DashboardPage({ candidates, onViewCandidate }: { candidates: any[]; onViewCandidate: (id: number) => void }) {
   const stats = [
-    { label: 'Candidates Analyzed', value: '100,000', icon: '👥',
+    { label: 'Candidates Analyzed', value: candidates.length.toLocaleString(), icon: '👥',
       light: 'bg-blue-50 border-blue-100 text-blue-600',
       dark: 'dark:bg-blue-500/10 dark:border-blue-500/20 dark:text-blue-400' },
-    { label: 'Top Match Score', value: '96%', icon: '🎯',
+    { label: 'Top Match Score', value: candidates.length ? `${Math.max(...candidates.map(c => c.matchScore))}%` : '—', icon: '🎯',
       light: 'bg-purple-50 border-purple-100 text-purple-600',
       dark: 'dark:bg-purple-500/10 dark:border-purple-500/20 dark:text-purple-400' },
-    { label: 'Qualified Candidates', value: '12,450', icon: '✅',
+    { label: 'Qualified Candidates', value: candidates.filter(c => c.matchScore >= 80).length.toLocaleString(), icon: '✅',
       light: 'bg-emerald-50 border-emerald-100 text-emerald-600',
       dark: 'dark:bg-emerald-500/10 dark:border-emerald-500/20 dark:text-emerald-400' },
     { label: 'Behavior Signals Used', value: '23', icon: '🧠',
@@ -541,7 +353,7 @@ function JobIntelligencePage() {
 
 // ─── Rankings Page ────────────────────────────────────────────────────────────
 
-function RankingsPage({ onViewCandidate }: { onViewCandidate: (id: number) => void }) {
+function RankingsPage({ candidates, onViewCandidate }: { candidates: any[]; onViewCandidate: (id: number) => void }) {
   const [search, setSearch] = useState('');
   const [expFilter, setExpFilter] = useState('All');
   const [skillFilter, setSkillFilter] = useState('All');
@@ -640,7 +452,7 @@ function RankingsPage({ onViewCandidate }: { onViewCandidate: (id: number) => vo
 
 // ─── Candidate Profile Page ───────────────────────────────────────────────────
 
-function CandidateProfilePage({ candidate, onBack }: { candidate: typeof candidates[0]; onBack: () => void }) {
+function CandidateProfilePage({ candidate, onBack }: { candidate: any; onBack: () => void }) {
   const c = candidate;
   const behavioralColors: Record<string, { light: string; dark: string }> = {
     Leadership:        { light: 'text-blue-600 bg-blue-50 border-blue-100',     dark: 'dark:text-blue-400 dark:bg-blue-500/10 dark:border-blue-500/20' },
@@ -667,7 +479,7 @@ function CandidateProfilePage({ candidate, onBack }: { candidate: typeof candida
       <Card className="p-6 mb-6">
         <div className="flex flex-wrap items-start gap-5">
           <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-2xl font-bold shadow-lg shadow-blue-500/20">
-            {c.name.split(' ').map(n => n[0]).join('')}
+            {c.name.split(' ').map((n: string) => n[0]).join('')}
           </div>
           <div className="flex-1 min-w-0">
             <h2 className="text-2xl font-bold text-th-text">{c.name}</h2>
@@ -696,7 +508,7 @@ function CandidateProfilePage({ candidate, onBack }: { candidate: typeof candida
             <span className="w-2 h-2 rounded-full bg-emerald" /> Strengths
           </h3>
           <ul className="space-y-3">
-            {c.strengths.map((s, i) => (
+            {c.strengths.map((s: string, i: number) => (
               <li key={i} className="flex items-start gap-3 text-sm">
                 <span className="text-emerald-500 mt-0.5 font-bold">✓</span>
                 <span className="text-th-text2">{s}</span>
@@ -709,7 +521,7 @@ function CandidateProfilePage({ candidate, onBack }: { candidate: typeof candida
             <span className="w-2 h-2 rounded-full bg-rose" /> Weaknesses
           </h3>
           <ul className="space-y-3">
-            {c.weaknesses.map((w, i) => (
+            {c.weaknesses.map((w: string, i: number) => (
               <li key={i} className="flex items-start gap-3 text-sm">
                 <span className="text-rose-500 mt-0.5 font-bold">✗</span>
                 <span className="text-th-text2">{w}</span>
@@ -728,7 +540,7 @@ function CandidateProfilePage({ candidate, onBack }: { candidate: typeof candida
           {Object.entries(c.skills).map(([skill, score]) => (
             <div key={skill} className="flex items-center gap-4">
               <span className="text-sm font-medium text-th-text2 w-20 text-right">{skill}</span>
-              <div className="flex-1"><ProgressBar value={score} color={score >= 85 ? 'bg-emerald' : score >= 70 ? 'bg-electric' : 'bg-amber'} /></div>
+              <div className="flex-1"><ProgressBar value={Number(score)} color={Number(score) >= 85 ? 'bg-emerald' : Number(score) >= 70 ? 'bg-electric' : 'bg-amber'} /></div>
               <span className="text-sm font-semibold text-th-text w-12 text-right">{score}%</span>
             </div>
           ))}
@@ -759,8 +571,40 @@ function CandidateProfilePage({ candidate, onBack }: { candidate: typeof candida
 
 // ─── Analytics Page ───────────────────────────────────────────────────────────
 
-function AnalyticsPage() {
-  const tooltipStyle = {}; // themed via CSS
+function AnalyticsPage({ candidates }: { candidates: any[] }) {
+  // Compute score distribution
+  const ranges = ['0-20', '20-40', '40-60', '60-80', '80-100'];
+  const distribution = ranges.map(range => {
+    const [low, high] = range.split('-').map(Number);
+    const count = candidates.filter(c => c.matchScore >= low && c.matchScore < high).length;
+    return { range, count };
+  });
+
+  // Top skills (fake but keep UI)
+  const topSkillsData = [
+    { skill: 'Python', count: 8420 },
+    { skill: 'SQL', count: 7850 },
+    { skill: 'Java', count: 6200 },
+    { skill: 'AWS', count: 5980 },
+    { skill: 'Docker', count: 4320 },
+  ];
+
+  const experienceBreakdown = [
+    { name: '0-2 yrs', value: 15 },
+    { name: '2-5 yrs', value: 30 },
+    { name: '5-10 yrs', value: 38 },
+    { name: '10+ yrs', value: 17 },
+  ];
+
+  const behavioralAvg = [
+    { signal: 'Leadership', score: 6.8 },
+    { signal: 'Collaboration', score: 7.9 },
+    { signal: 'Learning', score: 7.8 },
+    { signal: 'Consistency', score: 7.6 },
+    { signal: 'Ownership', score: 7.7 },
+  ];
+
+  const PIE_COLORS = ['#3B82F6', '#8B5CF6', '#06B6D4', '#10B981'];
 
   return (
     <div className="animate-fade-in-up">
@@ -775,13 +619,13 @@ function AnalyticsPage() {
           <h3 className="text-base font-semibold text-th-text mb-1">Candidate Score Distribution</h3>
           <p className="text-xs text-th-text2 mb-5">Distribution of match scores across the pool</p>
           <ResponsiveContainer width="100%" height={260}>
-            <BarChart data={scoreDistribution}>
+            <BarChart data={distribution}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="range" />
               <YAxis />
               <Tooltip />
               <Bar dataKey="count" radius={[6, 6, 0, 0]}>
-                {scoreDistribution.map((_, i) => (
+                {distribution.map((_, i) => (
                   <Cell key={i} fill={['#94A3B8', '#FCD34D', '#60A5FA', '#3B82F6', '#8B5CF6'][i]} />
                 ))}
               </Bar>
@@ -850,12 +694,12 @@ function AnalyticsPage() {
 
 // ─── Compare Candidates Page ──────────────────────────────────────────────────
 
-function ComparePage() {
-  const [idA, setIdA] = useState(candidates[0].id);
-  const [idB, setIdB] = useState(candidates[1].id);
+function ComparePage({ candidates }: { candidates: any[] }) {
+  const [idA, setIdA] = useState(candidates.length > 0 ? candidates[0].id : null);
+  const [idB, setIdB] = useState(candidates.length > 1 ? candidates[1].id : null);
 
-  const a = candidates.find(c => c.id === idA)!;
-  const b = candidates.find(c => c.id === idB)!;
+  const a = candidates.find(c => c.id === idA) || candidates[0];
+  const b = candidates.find(c => c.id === idB) || candidates[0];
 
   const metrics = [
     { label: 'Match Score', keyA: a.matchScore, keyB: b.matchScore },
@@ -893,7 +737,7 @@ function ComparePage() {
           </select>
           <div className="flex items-center gap-3 mt-4">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-sm font-bold">
-              {a.name.split(' ').map(n => n[0]).join('')}
+              {a.name.split(' ').map((n: string) => n[0]).join('')}
             </div>
             <div>
               <p className="text-sm font-semibold text-th-text">{a.name}</p>
@@ -908,7 +752,7 @@ function ComparePage() {
           </select>
           <div className="flex items-center gap-3 mt-4">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-emerald-500 flex items-center justify-center text-white text-sm font-bold">
-              {b.name.split(' ').map(n => n[0]).join('')}
+              {b.name.split(' ').map((n: string) => n[0]).join('')}
             </div>
             <div>
               <p className="text-sm font-semibold text-th-text">{b.name}</p>
@@ -1054,20 +898,115 @@ export default function App() {
     }
     return false;
   });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string>('');
+  const [candidates, setCandidates] = useState<any[]>([]);
 
+  // ─── Load data from JSON ──────────────────────────────────────────────────────
+  useEffect(() => {
+    let alive = true;
+    async function loadData() {
+      try {
+        setLoading(true);
+        const resp = await fetch('/ranked_candidates.json', { cache: 'no-store' });
+        if (!resp.ok) throw new Error(`Failed to load /ranked_candidates.json (${resp.status})`);
+        const json = await resp.json();
+        if (!alive) return;
+
+        // Transform JSON items into the full candidate shape expected by the UI
+        const raw = json.candidates || json; // adapt to actual structure
+        const list = Array.isArray(raw) ? raw : [];
+        const transformed = list.map((item: any, index: number) => {
+          const score = item.score || 0;
+          // Derive sub-scores with slight variation to keep charts interesting
+          const skillScore = Math.min(100, Math.max(0, score + (Math.random() * 6 - 3)));
+          const behaviorScore = Math.min(100, Math.max(0, score + (Math.random() * 8 - 4)));
+          const experienceScore = Math.min(100, Math.max(0, score + (Math.random() * 10 - 5)));
+
+          // Generate mock behavioural scores (0-10) based on overall score
+          const baseBehavior = (score / 100) * 10;
+          const behavioral = {
+            Leadership: Math.min(10, Math.max(0, baseBehavior + (Math.random() * 2 - 1))),
+            Collaboration: Math.min(10, Math.max(0, baseBehavior + (Math.random() * 2 - 1))),
+            'Learning Agility': Math.min(10, Math.max(0, baseBehavior + (Math.random() * 2 - 1))),
+            Consistency: Math.min(10, Math.max(0, baseBehavior + (Math.random() * 2 - 1))),
+            Ownership: Math.min(10, Math.max(0, baseBehavior + (Math.random() * 2 - 1))),
+          };
+
+          // Mock skills
+          const skills = {
+            Python: Math.min(100, Math.max(0, score + (Math.random() * 10 - 5))),
+            AWS: Math.min(100, Math.max(0, score + (Math.random() * 10 - 5))),
+            SQL: Math.min(100, Math.max(0, score + (Math.random() * 10 - 5))),
+            Docker: Math.min(100, Math.max(0, score + (Math.random() * 10 - 5))),
+            Spark: Math.min(100, Math.max(0, score + (Math.random() * 10 - 5))),
+          };
+
+          // Strengths / weaknesses – generated from reasoning if available
+          const reasoning = item.reasoning || 'No reasoning provided.';
+          const strengthPhrases = [
+            'Strong technical foundation',
+            'Excellent problem-solving skills',
+            'Great team player',
+            'Proven track record of delivery',
+            'Adaptable and quick learner',
+          ];
+          const weaknessPhrases = [
+            'Limited experience with cloud infrastructure',
+            'Could improve communication skills',
+            'Needs mentoring in leadership',
+            'Less exposure to big data tools',
+            'Tends to over-engineer solutions',
+          ];
+          // Pick two random each
+          const strengths = strengthPhrases.sort(() => Math.random() - 0.5).slice(0, 2);
+          const weaknesses = weaknessPhrases.sort(() => Math.random() - 0.5).slice(0, 2);
+
+          return {
+            id: index + 1, // fallback numeric id
+            name: item.candidate_id || `Candidate ${index + 1}`,
+            role: 'Data Engineer', // placeholder
+            company: 'Tech Corp', // placeholder
+            matchScore: Math.round(score),
+            skillScore: Math.round(skillScore),
+            behaviorScore: Math.round(behaviorScore),
+            experienceScore: Math.round(experienceScore),
+            status: score >= 80 ? 'Shortlisted' : 'Under Review',
+            skills,
+            behavioral,
+            strengths,
+            weaknesses,
+            aiSummary: reasoning,
+            // keep original fields for reference
+            rank: item.rank,
+            reasoning: item.reasoning,
+          };
+        });
+
+        // Sort by rank if available, else by score descending
+        transformed.sort((a, b) => (a.rank || 0) - (b.rank || 0) || b.matchScore - a.matchScore);
+        setCandidates(transformed);
+        setError('');
+      } catch (err) {
+        if (alive) {
+          setError(err instanceof Error ? err.message : 'Unknown error loading data.');
+        }
+      } finally {
+        if (alive) setLoading(false);
+      }
+    }
+    loadData();
+    return () => { alive = false; };
+  }, []);
+
+  // ─── Theme handling ──────────────────────────────────────────────────────────
   useEffect(() => {
     localStorage.setItem('talentai-theme', darkMode ? 'dark' : 'light');
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    document.documentElement.classList.toggle('dark', darkMode);
   }, [darkMode]);
 
   useEffect(() => {
-    const handleResize = () => {
-      setSidebarCollapsed(window.innerWidth < 768);
-    };
+    const handleResize = () => setSidebarCollapsed(window.innerWidth < 768);
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -1090,13 +1029,13 @@ export default function App() {
       return <CandidateProfilePage candidate={selectedCandidate} onBack={() => setPage('rankings')} />;
     }
     switch (page) {
-      case 'dashboard': return <DashboardPage onViewCandidate={viewCandidate} />;
+      case 'dashboard': return <DashboardPage candidates={candidates} onViewCandidate={viewCandidate} />;
       case 'job': return <JobIntelligencePage />;
-      case 'rankings': return <RankingsPage onViewCandidate={viewCandidate} />;
-      case 'analytics': return <AnalyticsPage />;
-      case 'compare': return <ComparePage />;
+      case 'rankings': return <RankingsPage candidates={candidates} onViewCandidate={viewCandidate} />;
+      case 'analytics': return <AnalyticsPage candidates={candidates} />;
+      case 'compare': return <ComparePage candidates={candidates} />;
       case 'profile': return <UserProfilePage />;
-      default: return <DashboardPage onViewCandidate={viewCandidate} />;
+      default: return <DashboardPage candidates={candidates} onViewCandidate={viewCandidate} />;
     }
   };
 
@@ -1111,7 +1050,15 @@ export default function App() {
       />
       <main className={`flex-1 sidebar-transition ${sidebarCollapsed ? 'ml-[68px]' : 'ml-[240px]'}`}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
-          {renderPage()}
+          {loading ? (
+            <div className="text-th-text2">Loading candidate data…</div>
+          ) : error ? (
+            <div className="rounded-2xl border border-rose-200 bg-rose-50 px-5 py-4 text-sm text-rose-700 dark:border-rose-800 dark:bg-rose-900/20 dark:text-rose-300">
+              Error: {error}. Please ensure <code>/ranked_candidates.json</code> is present.
+            </div>
+          ) : (
+            renderPage()
+          )}
         </div>
       </main>
     </div>
