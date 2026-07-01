@@ -1,51 +1,101 @@
-candidate_id,rank,final_score,reasoning
-CAND_0000031,1,76.28,CAND_0000031: has ranking/retrieval system exposure; high engagement and recruiter activity
-CAND_0000001,2,51.23,CAND_0000001: high engagement and recruiter activity
-CAND_0000021,3,47.75,CAND_0000021: moderate JD alignment based on experience and skills
-CAND_0000010,4,46.91,CAND_0000010: high engagement and recruiter activity
-CAND_0000038,5,39.57,CAND_0000038: high engagement and recruiter activity
-CAND_0000025,6,39.23,CAND_0000025: high engagement and recruiter activity
-CAND_0000027,7,39.01,CAND_0000027: high engagement and recruiter activity
-CAND_0000032,8,37.86,CAND_0000032: high engagement and recruiter activity
-CAND_0000043,9,37.75,CAND_0000043: moderate JD alignment based on experience and skills
-CAND_0000048,10,37.16,CAND_0000048: high engagement and recruiter activity
-CAND_0000014,11,36.65,CAND_0000014: high engagement and recruiter activity
-CAND_0000015,12,34.43,CAND_0000015: high engagement and recruiter activity
-CAND_0000018,13,34.11,CAND_0000018: high engagement and recruiter activity
-CAND_0000044,14,33.02,CAND_0000044: high engagement and recruiter activity
-CAND_0000023,15,32.96,CAND_0000023: high engagement and recruiter activity
-CAND_0000045,16,32.44,CAND_0000045: high engagement and recruiter activity
-CAND_0000036,17,31.6,CAND_0000036: high engagement and recruiter activity
-CAND_0000005,18,30.95,CAND_0000005: moderate JD alignment based on experience and skills
-CAND_0000041,19,30.72,CAND_0000041: moderate JD alignment based on experience and skills
-CAND_0000037,20,30.12,CAND_0000037: high engagement and recruiter activity
-CAND_0000002,21,21.51,CAND_0000002: moderate JD alignment based on experience and skills
-CAND_0000050,22,19.24,CAND_0000050: moderate JD alignment based on experience and skills
-CAND_0000035,23,19.24,CAND_0000035: moderate JD alignment based on experience and skills
-CAND_0000026,24,19.19,CAND_0000026: high engagement and recruiter activity
-CAND_0000011,25,18.38,CAND_0000011: high engagement and recruiter activity
-CAND_0000024,26,18.1,CAND_0000024: high engagement and recruiter activity
-CAND_0000049,27,17.47,CAND_0000049: moderate JD alignment based on experience and skills
-CAND_0000009,28,17.24,CAND_0000009: moderate JD alignment based on experience and skills
-CAND_0000020,29,16.79,CAND_0000020: moderate JD alignment based on experience and skills
-CAND_0000030,30,16.49,CAND_0000030: high engagement and recruiter activity
-CAND_0000046,31,16.17,CAND_0000046: moderate JD alignment based on experience and skills
-CAND_0000019,32,15.42,CAND_0000019: moderate JD alignment based on experience and skills
-CAND_0000033,33,15.16,CAND_0000033: moderate JD alignment based on experience and skills
-CAND_0000016,34,14.29,CAND_0000016: high engagement and recruiter activity
-CAND_0000017,35,14.21,CAND_0000017: moderate JD alignment based on experience and skills
-CAND_0000029,36,14.18,CAND_0000029: moderate JD alignment based on experience and skills
-CAND_0000039,37,13.72,CAND_0000039: high engagement and recruiter activity
-CAND_0000034,38,13.64,CAND_0000034: moderate JD alignment based on experience and skills
-CAND_0000007,39,12.5,CAND_0000007: moderate JD alignment based on experience and skills
-CAND_0000042,40,12.38,CAND_0000042: high engagement and recruiter activity
-CAND_0000008,41,11.69,CAND_0000008: moderate JD alignment based on experience and skills
-CAND_0000006,42,9.43,CAND_0000006: moderate JD alignment based on experience and skills
-CAND_0000004,43,8.98,CAND_0000004: moderate JD alignment based on experience and skills
-CAND_0000013,44,8.8,CAND_0000013: moderate JD alignment based on experience and skills
-CAND_0000022,45,7.9,CAND_0000022: moderate JD alignment based on experience and skills
-CAND_0000040,46,6.06,CAND_0000040: moderate JD alignment based on experience and skills
-CAND_0000003,47,4.82,CAND_0000003: moderate JD alignment based on experience and skills
-CAND_0000028,48,4.18,CAND_0000028: moderate JD alignment based on experience and skills
-CAND_0000012,49,3.16,CAND_0000012: moderate JD alignment based on experience and skills
-CAND_0000047,50,2.59,CAND_0000047: moderate JD alignment based on experience and skills
+candidate_id,rank,score,reasoning
+CAND_0081846,1,90.43,CAND_0081846: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0046064,2,85.77,CAND_0046064: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0077337,3,85.53,CAND_0077337: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0039754,4,85.52,CAND_0039754: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0046525,5,84.99,CAND_0046525: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0055905,6,84.11,CAND_0055905: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0008425,7,83.7,CAND_0008425: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0018499,8,82.77,CAND_0018499: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0055992,9,82.54,CAND_0055992: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0041610,10,82.15,CAND_0041610: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0092278,11,82.01,CAND_0092278: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0071974,12,81.67,CAND_0071974: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0062247,13,81.53,CAND_0062247: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0076251,14,81.44,CAND_0076251: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0007411,15,81.36,CAND_0007411: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0088025,16,81.35,CAND_0088025: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0086022,17,81.28,CAND_0086022: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0068811,18,80.85,CAND_0068811: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0033861,19,80.64,CAND_0033861: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0011687,20,80.49,CAND_0011687: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0005260,21,77.39,CAND_0005260: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0010257,22,77.16,CAND_0010257: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0015528,23,76.83,CAND_0015528: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0013536,24,76.66,CAND_0013536: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0002025,25,76.64,CAND_0002025: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0080766,26,76.42,CAND_0080766: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0000165,27,76.34,CAND_0000165: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0018549,28,76.32,CAND_0018549: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0044222,29,76.31,CAND_0044222: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0093193,30,76.18,CAND_0093193: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0061265,31,75.69,CAND_0061265: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0094759,32,75.67,CAND_0094759: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0006557,33,75.45,CAND_0006557: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0011162,34,75.43,CAND_0011162: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0016163,35,75.37,CAND_0016163: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0099806,36,75.04,CAND_0099806: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0041611,37,74.59,CAND_0041611: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0068351,38,74.51,CAND_0068351: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0061257,39,74.45,CAND_0061257: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0006567,40,74.38,CAND_0006567: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0014440,41,74.11,CAND_0014440: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0098454,42,74.1,CAND_0098454: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0001218,43,74.01,CAND_0001218: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0050454,44,73.96,CAND_0050454: high engagement and recruiter activity
+CAND_0043318,45,73.95,CAND_0043318: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0081852,46,73.9,CAND_0081852: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0033179,47,73.84,CAND_0033179: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0039383,48,73.83,CAND_0039383: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0051004,49,73.82,CAND_0051004: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0069905,50,73.76,CAND_0069905: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0064904,51,73.69,CAND_0064904: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0061339,52,73.58,CAND_0061339: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0030348,53,73.56,CAND_0030348: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0075249,54,73.5,CAND_0075249: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0030953,55,73.47,CAND_0030953: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0021491,56,73.28,CAND_0021491: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0024620,57,73.21,CAND_0024620: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0094292,58,73.1,CAND_0094292: high engagement and recruiter activity
+CAND_0041669,59,73.06,CAND_0041669: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0018722,60,73.05,CAND_0018722: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0022870,61,72.91,CAND_0022870: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0045250,62,72.77,CAND_0045250: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0038949,63,72.64,CAND_0038949: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0070398,64,72.61,CAND_0070398: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0091534,65,72.3,CAND_0091534: high engagement and recruiter activity
+CAND_0054318,66,72.24,CAND_0054318: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0074123,67,72.21,CAND_0074123: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0043676,68,72.05,CAND_0043676: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0072688,69,71.96,CAND_0072688: high engagement and recruiter activity
+CAND_0001494,70,71.86,CAND_0001494: high engagement and recruiter activity
+CAND_0037980,71,71.79,CAND_0037980: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0093331,72,71.76,CAND_0093331: high engagement and recruiter activity
+CAND_0000031,73,71.68,CAND_0000031: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0005649,74,71.65,CAND_0005649: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0083307,75,71.6,CAND_0083307: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0091890,76,71.6,CAND_0091890: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0022720,77,71.53,CAND_0022720: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0043228,78,71.48,CAND_0043228: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0079387,79,71.46,CAND_0079387: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0049896,80,71.28,CAND_0049896: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0065195,81,71.25,CAND_0065195: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0099965,82,71.25,CAND_0099965: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0049538,83,71.24,CAND_0049538: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0054703,84,71.22,CAND_0054703: high engagement and recruiter activity
+CAND_0003575,85,71.08,CAND_0003575: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0037160,86,71.05,CAND_0037160: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0086151,87,71.05,CAND_0086151: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0078002,88,70.92,CAND_0078002: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0030468,89,70.89,CAND_0030468: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0094728,90,70.76,CAND_0094728: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0042056,91,70.67,CAND_0042056: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0024990,92,70.59,CAND_0024990: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0077067,93,70.59,CAND_0077067: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0060072,94,70.38,CAND_0060072: high engagement and recruiter activity
+CAND_0012837,95,70.36,CAND_0012837: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0057166,96,70.36,CAND_0057166: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0052328,97,70.29,CAND_0052328: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0043304,98,70.28,CAND_0043304: high engagement and recruiter activity
+CAND_0095528,99,70.23,CAND_0095528: has ranking/retrieval system exposure; high engagement and recruiter activity
+CAND_0032807,100,70.21,CAND_0032807: has ranking/retrieval system exposure; high engagement and recruiter activity

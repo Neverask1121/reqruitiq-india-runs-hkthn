@@ -88,8 +88,7 @@ def rank_candidates(scores: List[CandidateScore]) -> List[CandidateScore]:
     # SORT FINAL LIST
     ranked = sorted(
         scores,
-        key=lambda x: x.final_score,
-        reverse=True
+        key=lambda x: (-float(x.final_score or 0.0), x.candidate_id)
     )
 
     return ranked

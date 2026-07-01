@@ -52,4 +52,4 @@ def rerank_with_llm(candidates: List[CandidateScore], top_k: int = 20):
         # blend with existing score
         c.final_score = (0.7 * c.final_score) + (0.3 * c.llm_score)
 
-    return sorted(candidates, key=lambda x: x.final_score, reverse=True)
+    return sorted(candidates, key=lambda x: (-float(x.final_score or 0.0), x.candidate_id))

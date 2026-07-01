@@ -1,0 +1,607 @@
+{
+  "candidates": [
+    {
+      "candidate_id": "CAND_0081846",
+      "rank": 1,
+      "score": 90.43,
+      "reasoning": "CAND_0081846: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0046064",
+      "rank": 2,
+      "score": 85.77,
+      "reasoning": "CAND_0046064: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0077337",
+      "rank": 3,
+      "score": 85.53,
+      "reasoning": "CAND_0077337: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0039754",
+      "rank": 4,
+      "score": 85.52,
+      "reasoning": "CAND_0039754: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0046525",
+      "rank": 5,
+      "score": 84.99,
+      "reasoning": "CAND_0046525: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0055905",
+      "rank": 6,
+      "score": 84.11,
+      "reasoning": "CAND_0055905: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0008425",
+      "rank": 7,
+      "score": 83.7,
+      "reasoning": "CAND_0008425: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0018499",
+      "rank": 8,
+      "score": 82.77,
+      "reasoning": "CAND_0018499: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0055992",
+      "rank": 9,
+      "score": 82.54,
+      "reasoning": "CAND_0055992: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0041610",
+      "rank": 10,
+      "score": 82.15,
+      "reasoning": "CAND_0041610: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0092278",
+      "rank": 11,
+      "score": 82.01,
+      "reasoning": "CAND_0092278: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0071974",
+      "rank": 12,
+      "score": 81.67,
+      "reasoning": "CAND_0071974: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0062247",
+      "rank": 13,
+      "score": 81.53,
+      "reasoning": "CAND_0062247: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0076251",
+      "rank": 14,
+      "score": 81.44,
+      "reasoning": "CAND_0076251: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0007411",
+      "rank": 15,
+      "score": 81.36,
+      "reasoning": "CAND_0007411: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0088025",
+      "rank": 16,
+      "score": 81.35,
+      "reasoning": "CAND_0088025: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0086022",
+      "rank": 17,
+      "score": 81.28,
+      "reasoning": "CAND_0086022: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0068811",
+      "rank": 18,
+      "score": 80.85,
+      "reasoning": "CAND_0068811: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0033861",
+      "rank": 19,
+      "score": 80.64,
+      "reasoning": "CAND_0033861: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0011687",
+      "rank": 20,
+      "score": 80.49,
+      "reasoning": "CAND_0011687: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0005260",
+      "rank": 21,
+      "score": 77.39,
+      "reasoning": "CAND_0005260: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0010257",
+      "rank": 22,
+      "score": 77.16,
+      "reasoning": "CAND_0010257: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0015528",
+      "rank": 23,
+      "score": 76.83,
+      "reasoning": "CAND_0015528: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0013536",
+      "rank": 24,
+      "score": 76.66,
+      "reasoning": "CAND_0013536: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0002025",
+      "rank": 25,
+      "score": 76.64,
+      "reasoning": "CAND_0002025: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0080766",
+      "rank": 26,
+      "score": 76.42,
+      "reasoning": "CAND_0080766: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0000165",
+      "rank": 27,
+      "score": 76.34,
+      "reasoning": "CAND_0000165: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0018549",
+      "rank": 28,
+      "score": 76.32,
+      "reasoning": "CAND_0018549: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0044222",
+      "rank": 29,
+      "score": 76.31,
+      "reasoning": "CAND_0044222: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0093193",
+      "rank": 30,
+      "score": 76.18,
+      "reasoning": "CAND_0093193: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0061265",
+      "rank": 31,
+      "score": 75.69,
+      "reasoning": "CAND_0061265: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0094759",
+      "rank": 32,
+      "score": 75.67,
+      "reasoning": "CAND_0094759: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0006557",
+      "rank": 33,
+      "score": 75.45,
+      "reasoning": "CAND_0006557: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0011162",
+      "rank": 34,
+      "score": 75.43,
+      "reasoning": "CAND_0011162: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0016163",
+      "rank": 35,
+      "score": 75.37,
+      "reasoning": "CAND_0016163: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0099806",
+      "rank": 36,
+      "score": 75.04,
+      "reasoning": "CAND_0099806: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0041611",
+      "rank": 37,
+      "score": 74.59,
+      "reasoning": "CAND_0041611: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0068351",
+      "rank": 38,
+      "score": 74.51,
+      "reasoning": "CAND_0068351: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0061257",
+      "rank": 39,
+      "score": 74.45,
+      "reasoning": "CAND_0061257: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0006567",
+      "rank": 40,
+      "score": 74.38,
+      "reasoning": "CAND_0006567: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0014440",
+      "rank": 41,
+      "score": 74.11,
+      "reasoning": "CAND_0014440: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0098454",
+      "rank": 42,
+      "score": 74.1,
+      "reasoning": "CAND_0098454: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0001218",
+      "rank": 43,
+      "score": 74.01,
+      "reasoning": "CAND_0001218: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0050454",
+      "rank": 44,
+      "score": 73.96,
+      "reasoning": "CAND_0050454: high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0043318",
+      "rank": 45,
+      "score": 73.95,
+      "reasoning": "CAND_0043318: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0081852",
+      "rank": 46,
+      "score": 73.9,
+      "reasoning": "CAND_0081852: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0033179",
+      "rank": 47,
+      "score": 73.84,
+      "reasoning": "CAND_0033179: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0039383",
+      "rank": 48,
+      "score": 73.83,
+      "reasoning": "CAND_0039383: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0051004",
+      "rank": 49,
+      "score": 73.82,
+      "reasoning": "CAND_0051004: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0069905",
+      "rank": 50,
+      "score": 73.76,
+      "reasoning": "CAND_0069905: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0064904",
+      "rank": 51,
+      "score": 73.69,
+      "reasoning": "CAND_0064904: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0061339",
+      "rank": 52,
+      "score": 73.58,
+      "reasoning": "CAND_0061339: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0030348",
+      "rank": 53,
+      "score": 73.56,
+      "reasoning": "CAND_0030348: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0075249",
+      "rank": 54,
+      "score": 73.5,
+      "reasoning": "CAND_0075249: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0030953",
+      "rank": 55,
+      "score": 73.47,
+      "reasoning": "CAND_0030953: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0021491",
+      "rank": 56,
+      "score": 73.28,
+      "reasoning": "CAND_0021491: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0024620",
+      "rank": 57,
+      "score": 73.21,
+      "reasoning": "CAND_0024620: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0094292",
+      "rank": 58,
+      "score": 73.1,
+      "reasoning": "CAND_0094292: high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0041669",
+      "rank": 59,
+      "score": 73.06,
+      "reasoning": "CAND_0041669: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0018722",
+      "rank": 60,
+      "score": 73.05,
+      "reasoning": "CAND_0018722: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0022870",
+      "rank": 61,
+      "score": 72.91,
+      "reasoning": "CAND_0022870: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0045250",
+      "rank": 62,
+      "score": 72.77,
+      "reasoning": "CAND_0045250: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0038949",
+      "rank": 63,
+      "score": 72.64,
+      "reasoning": "CAND_0038949: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0070398",
+      "rank": 64,
+      "score": 72.61,
+      "reasoning": "CAND_0070398: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0091534",
+      "rank": 65,
+      "score": 72.3,
+      "reasoning": "CAND_0091534: high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0054318",
+      "rank": 66,
+      "score": 72.24,
+      "reasoning": "CAND_0054318: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0074123",
+      "rank": 67,
+      "score": 72.21,
+      "reasoning": "CAND_0074123: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0043676",
+      "rank": 68,
+      "score": 72.05,
+      "reasoning": "CAND_0043676: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0072688",
+      "rank": 69,
+      "score": 71.96,
+      "reasoning": "CAND_0072688: high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0001494",
+      "rank": 70,
+      "score": 71.86,
+      "reasoning": "CAND_0001494: high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0037980",
+      "rank": 71,
+      "score": 71.79,
+      "reasoning": "CAND_0037980: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0093331",
+      "rank": 72,
+      "score": 71.76,
+      "reasoning": "CAND_0093331: high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0000031",
+      "rank": 73,
+      "score": 71.68,
+      "reasoning": "CAND_0000031: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0005649",
+      "rank": 74,
+      "score": 71.65,
+      "reasoning": "CAND_0005649: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0083307",
+      "rank": 75,
+      "score": 71.6,
+      "reasoning": "CAND_0083307: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0091890",
+      "rank": 76,
+      "score": 71.6,
+      "reasoning": "CAND_0091890: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0022720",
+      "rank": 77,
+      "score": 71.53,
+      "reasoning": "CAND_0022720: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0043228",
+      "rank": 78,
+      "score": 71.48,
+      "reasoning": "CAND_0043228: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0079387",
+      "rank": 79,
+      "score": 71.46,
+      "reasoning": "CAND_0079387: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0049896",
+      "rank": 80,
+      "score": 71.28,
+      "reasoning": "CAND_0049896: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0065195",
+      "rank": 81,
+      "score": 71.25,
+      "reasoning": "CAND_0065195: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0099965",
+      "rank": 82,
+      "score": 71.25,
+      "reasoning": "CAND_0099965: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0049538",
+      "rank": 83,
+      "score": 71.24,
+      "reasoning": "CAND_0049538: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0054703",
+      "rank": 84,
+      "score": 71.22,
+      "reasoning": "CAND_0054703: high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0003575",
+      "rank": 85,
+      "score": 71.08,
+      "reasoning": "CAND_0003575: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0037160",
+      "rank": 86,
+      "score": 71.05,
+      "reasoning": "CAND_0037160: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0086151",
+      "rank": 87,
+      "score": 71.05,
+      "reasoning": "CAND_0086151: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0078002",
+      "rank": 88,
+      "score": 70.92,
+      "reasoning": "CAND_0078002: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0030468",
+      "rank": 89,
+      "score": 70.89,
+      "reasoning": "CAND_0030468: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0094728",
+      "rank": 90,
+      "score": 70.76,
+      "reasoning": "CAND_0094728: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0042056",
+      "rank": 91,
+      "score": 70.67,
+      "reasoning": "CAND_0042056: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0024990",
+      "rank": 92,
+      "score": 70.59,
+      "reasoning": "CAND_0024990: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0077067",
+      "rank": 93,
+      "score": 70.59,
+      "reasoning": "CAND_0077067: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0060072",
+      "rank": 94,
+      "score": 70.38,
+      "reasoning": "CAND_0060072: high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0012837",
+      "rank": 95,
+      "score": 70.36,
+      "reasoning": "CAND_0012837: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0057166",
+      "rank": 96,
+      "score": 70.36,
+      "reasoning": "CAND_0057166: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0052328",
+      "rank": 97,
+      "score": 70.29,
+      "reasoning": "CAND_0052328: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0043304",
+      "rank": 98,
+      "score": 70.28,
+      "reasoning": "CAND_0043304: high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0095528",
+      "rank": 99,
+      "score": 70.23,
+      "reasoning": "CAND_0095528: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    },
+    {
+      "candidate_id": "CAND_0032807",
+      "rank": 100,
+      "score": 70.21,
+      "reasoning": "CAND_0032807: has ranking/retrieval system exposure; high engagement and recruiter activity"
+    }
+  ],
+  "generated_at": "backend-run",
+  "top_k": 100,
+  "total_candidates": 100
+}
