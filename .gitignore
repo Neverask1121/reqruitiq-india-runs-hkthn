@@ -1,29 +1,6 @@
-# =========================
-# Operating System Files
-# =========================
-.DS_Store
-Thumbs.db
-Desktop.ini
-__MACOSX/
-**/__MACOSX/
-
-# =========================
-# Git
-# =========================
-.git
-
-# =========================
-# Environment Variables
-# =========================
-.env
-.env.*
-!.env.example
-
-# =========================
 # Logs
-# =========================
+logs
 *.log
-logs/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
